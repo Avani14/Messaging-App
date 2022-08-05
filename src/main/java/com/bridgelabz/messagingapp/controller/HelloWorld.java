@@ -1,13 +1,17 @@
 package com.bridgelabz.messagingapp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.bridgelabz.messagingapp.entity.Person;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/hello")
 public class HelloWorld {
-    @GetMapping("/hello/{name}")
+    @GetMapping("/{name}")
     public String helloWorld(@PathVariable String name){
         return "Hello "+name;
+    }
+    @PostMapping("post")
+    public String creatingAPerson(@RequestBody Person person){
+        return "Hello "+person.getFirst_name()+" "+person.getLast_name();
     }
 }
