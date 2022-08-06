@@ -19,6 +19,7 @@ public class HelloWorld {
         return "Hello "+name;
     }
 
+
     @PostMapping("post")
     public String creatingAPerson(@RequestBody Person person){
         return "Hello "+person.getFirst_name()+" "+person.getLast_name();
