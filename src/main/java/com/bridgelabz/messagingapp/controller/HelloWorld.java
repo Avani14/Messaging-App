@@ -6,8 +6,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/hello")
 public class HelloWorld {
+    @GetMapping("/")
+    public String hello(){
+        return "Hello";
+    }
+    @GetMapping("/query/{name}")
+    public String helloWorldByPathVariale(@PathVariable String name){
+        return "Hello "+name;
+    }
     @GetMapping("/query")
-    public String helloWorld(@RequestParam String name){
+    public String helloWorldByRequestParam(@RequestParam String name){
         return "Hello "+name;
     }
 
